@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    background-color: blueviolet
+}
+.listaContainer {
+
+}
+
+h1 {
+
+}
+
+input {
+
+
+}
+
+.btnAdd {
+
+
+}
+
+.tarefa {
+
+
+}
+
+
+.btn {
+
+
+}
+
+@media(min-width: 400px) {
+    
+}
