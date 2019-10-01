@@ -1,29 +1,29 @@
-//captura inputTarefa
-//pega valor do input
-//criar div vazia
-//ouvir evento click no botao add
-    //valor do input 
-    //criar x 
-    //ouvir x 
-    //dar o check
 
-//criar laço para iterar
-//criar li
-    //criar span 
-        //inserir texto que vai ser o valor do input
-    //criar span
-        //inserir texto que vai ser x
-    //add classe que terá o display flex e divisor 
+// capturar elementos - form, inputTarefa, botaoAdd, ul, listaContainer, botaoMarcar, botaoExcluir
+const listaContainer = document.getElementById('listaContainer')
+const form = document.getElementById('form')
+const inputTarefa = document.getElementById('inputTarefa')
+const botaoAdd = document.getElementById('botaoAdd')
+const ul = document.getElementById('tarefas')
+const botaoMarcar = document.getElementById('botaoMarcar')
+const botaoExcluir = document.getElementById('botaoExcluir')
+
+// inserir um evento no form
+form.addEventListener('submit', function(evento){
+    //tira o default de form 
+    evento.preventDefault()
+     // criar uma li
+    const valorDigitado =  document.createElement('li')
+    //capturar valor do input da tarefa
+    valorDigitado.textContent = inputTarefa.value
+    // inserir input tarefa dentro do li
+
+    console.log(valorDigitado)
+ })
 
 
 
 
-
-
-//mostrar tarefinha 
- //inserir append child li para ul
- //inserir append child x para ul
-    
 
 
 
