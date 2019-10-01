@@ -6,20 +6,33 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     margin: 0;
-    background-color: blueviolet
-}
-.listaContainer {
-
+    background-image: linear-gradient(to right, #e0c3fc, #8ec5fc);
 }
 
-h1 {
+#listaContainer{
+    min-height: 75vh;
+    max-width: 46vh;
+    margin-right: 8%;
+    margin-top: 20%;
+    margin-left: 8%;
+    background-color: white;
+  
+}
+
+h1{
+    min-width: 20vh;
+    min-height: 12vh;
+    font-size: 17px;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px rgba(0,0,0,0.24);
 
 }
 
-input {
 
 
-}
 
 .btnAdd {
 
