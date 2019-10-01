@@ -128,5 +128,14 @@ h1{
 }
 
 
+.tarefas-digitadas {
+    font-weight: 700;
+}
 
+.tarefas-excluidas { 
+    display: none;
+}
 
+.tarefas-marcadas {
+    text-decoration-line: line-through; 
+}
