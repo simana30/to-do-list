@@ -34,6 +34,8 @@ h1{
     min-height: 10vh;
 }
 
+
+
 .btnAdd{
     background-color:#ba7af8 ;
     min-width: 84vw;
@@ -248,5 +250,14 @@ h1{
 
 
 
+.tarefas-digitadas {
+    font-weight: 700;
+}
 
+.tarefas-excluidas { 
+    display: none;
+}
 
+.tarefas-marcadas {
+    text-decoration-line: line-through; 
+}

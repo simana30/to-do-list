@@ -24,15 +24,16 @@ form.addEventListener('submit', function(evento){
     
 
     //criar p que vai ter x como conteúdo
-    const paragrafoX = document.createElement('p')
+    const paragrafoX = document.createElement('span')
     paragrafoX.textContent = "x"
     
     //estrututura de identação
     tarefinha.appendChild(valorDigitado)
     tarefinha.appendChild(paragrafoX)
-    
-    //ouvir o parágrafo x  e adicionar a classe que risca a tarefa e faz o inverso (toggle)
-    paragrafoX.addEventListener('click', function(evento){
+
+
+    //ouvir parágrafo tarefinha e adicionar a classe que risca a tarefa e faz o inverso(toogle)
+    valorDigitado.addEventListener('click', function(evento){
         if(valorDigitado.classList.contains('tarefa-digitada')){
             valorDigitado.classList.remove('tarefa-digitada')
             valorDigitado.classList.add('tarefa-executada')
@@ -42,31 +43,33 @@ form.addEventListener('submit', function(evento){
         }
        
     })
+    //ouvir o parágrafo x  e excluir a tarefa
+    paragrafoX.addEventListener('click', function(evento){
+             
+        if (valorDigitado.parentNode) {
+            valorDigitado.parentNode.removeChild(valorDigitado)
+            paragrafoX.parentNode.removeChild(paragrafoX)
+        } 
+       
+    })
 })
 
 
-//ouvir o botaoMarcar tudo iterar todas as tarefas e add a classe que risca tudo
-botaoMarcar.addEventListener('click', function(evento){
-    for(let i = 1; i < tarefas.lentgh; i++) {
-        if(valorDigitado.classList.contains('tarefa-digitada')){
-            valorDigitado.classList.remove('tarefa-digitada')
-            valorDigitado.classList.add('tarefa-executada')
-        } else {
-            valorDigitado.classList.add('tarefa-digitada')
-            valorDigitado.classList.remove('tarefa-executada')
-        }
-    }
+//ouvir o botaoMarcar tudo e add a classe que risca tudo, toggle clicar no botão de novo e desmarcar
+botaoMarcar.addEventListener('click', function(e){
+    if(tarefas.classList.contains('tarefas-marcadas')) {
+        tarefas.classList.remove('tarefas-marcadas')
+        tarefas.classList.add('tarefas-digitadas')
+    } else {
+    let tarefasMarcadas = tarefas.setAttribute('class', 'tarefas-marcadas')
+    }    
 })
-
-
-
-
-
-
-
-
-
 //ouvir o botaoExcluir, iterar e criar uma nodelist vazia, excluir todos os itens ou resetar 
 //form.reset();
 
-
+botaoExcluir.addEventListener('click', function(e){
+    if(tarefas.parentNode){
+        tarefas.parentNode.removeChild(tarefas)
+    }
+})
+    
