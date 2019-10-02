@@ -29,11 +29,18 @@ h1{
     box-shadow: 0px 1px rgba(0,0,0,0.24);
 }
 
-.tarefa{
+
+
+.tarefas{
     min-width: 84vw;
     min-height: 10vh;
 }
 
+.erroCampo {
+    font-size: 12px;
+    color: red;
+    margin: 2px;
+}
 
 
 .btnAdd{
@@ -133,7 +140,7 @@ h1{
 
     #listaContainer {
         min-height: 70vh;
-        max-width: 45vw;
+        max-width: 35vw;
         margin-top: 8%;
         margin-left: 28%;
         background-color: white;
@@ -141,8 +148,8 @@ h1{
 
     h1 {
         min-height: 12vh;
-        font-size: 36px;
-        padding-left: 20%;
+        font-size: 20px;
+        padding-left: 18%;
         padding-right: 10%;
         display: flex;
         align-items: center;
@@ -150,103 +157,38 @@ h1{
 }
 
     .tarefa {
-         min-width: 45vw;
+        min-width: 35vw;
         min-height: 9vh;
-         margin-top: 2%;
-        font-size: 22px;
+        margin-top: 2%;
+        font-size: 14px;
 }
 
     .btnAdd {
         background-color: #ba7af8;
-        min-width: 45vw;
+        min-width: 35vw;
         min-height: 8vh;
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .btnMarcar {
         background-color: #ba7af8;
-        min-width: 18vw;
+        min-width: 12vw;
         min-height: 8vh;
         margin-left: 7%;
         margin-top: 2%;
         margin-bottom: 2%;
-        font-size: 20px;
+        font-size: 15px;
     }
-
     .btnExcluir {
         background-color: #ba7af8;
-        min-width: 18vw;
+        min-width: 12vw;
         min-height: 8vh;
         margin-left: 7%;
         margin-top: 2%;
         margin-bottom: 2%;
-        font-size: 20px;
+        font-size: 15px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

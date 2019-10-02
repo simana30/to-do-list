@@ -7,41 +7,54 @@ const botaoAdd = document.getElementById('botaoAdd')
 const tarefas = document.getElementById('tarefas')
 const botaoMarcar = document.getElementById('botaoMarcar')
 const botaoExcluir = document.getElementById('botaoExcluir')
+const vazia = document.getElementById("vazia")
+
 
 // inserir um evento no form
 form.addEventListener('submit', function(evento){
     //tira o default de form 
     evento.preventDefault()
-    //criar div e atribuir classe
-    const tarefinha = document.createElement('div')
-    tarefinha.className = "tarefinha"
-    tarefas.appendChild(tarefinha)
+    //criando outras variaveis para arrumar o validar campo
+    let mensagem = inputTarefa.value.trim()
+    //criando a condição do erro validar campo
+    if (mensagem === "") {
 
-    //criar p que vai ter conteudo do valor digitado
-    const valorDigitado = document.createElement('p')
-    valorDigitado.className = "tarefa-digitada"
-    valorDigitado.textContent = inputTarefa.value
+        vazia.textContent = "Escreva alguma tarefa";
+        vazia.className ="erroCampo"
+    }else{
+        
+        vazia.textContent = "";
+        
+        //criar div e atribuir classe
+        const tarefinha = document.createElement('div')
+        tarefinha.className = "tarefinha"
+        tarefas.appendChild(tarefinha)
+
+        //criar p que vai ter conteudo do valor digitado
+        const valorDigitado = document.createElement('p')
+        valorDigitado.className = "tarefa-digitada"
+        valorDigitado.textContent = inputTarefa.value
+        
+        form.reset();
+        
+        //criar p que vai ter x como conteúdo
+        const paragrafoX = document.createElement('span')
+        paragrafoX.textContent = "x"
+        
+        //estrututura de identação
+        tarefinha.appendChild(valorDigitado)
+        tarefinha.appendChild(paragrafoX)    
     
-
-    //criar p que vai ter x como conteúdo
-    const paragrafoX = document.createElement('span')
-    paragrafoX.textContent = "x"
-    
-    //estrututura de identação
-    tarefinha.appendChild(valorDigitado)
-    tarefinha.appendChild(paragrafoX)
-
-
-    //ouvir parágrafo tarefinha e adicionar a classe que risca a tarefa e faz o inverso(toogle)
-    valorDigitado.addEventListener('click', function(evento){
-        if(valorDigitado.classList.contains('tarefa-digitada')){
-            valorDigitado.classList.remove('tarefa-digitada')
-            valorDigitado.classList.add('tarefa-executada')
-        } else {
-            valorDigitado.classList.add('tarefa-digitada')
-            valorDigitado.classList.remove('tarefa-executada')
-        }
-       
+        //ouvir parágrafo tarefinha e adicionar a classe que risca a tarefa e faz o inverso(toogle)
+        valorDigitado.addEventListener('click', function(evento){
+            if(valorDigitado.classList.contains('tarefa-digitada')){
+                valorDigitado.classList.remove('tarefa-digitada')
+                valorDigitado.classList.add('tarefa-executada')
+            } else {
+                valorDigitado.classList.add('tarefa-digitada')
+                valorDigitado.classList.remove('tarefa-executada')
+            }
+        
     })
     //ouvir o parágrafo x  e excluir a tarefa
     paragrafoX.addEventListener('click', function(evento){
@@ -49,9 +62,12 @@ form.addEventListener('submit', function(evento){
         if (valorDigitado.parentNode) {
             valorDigitado.parentNode.removeChild(valorDigitado)
             paragrafoX.parentNode.removeChild(paragrafoX)
+            tarefinha.classList.remove("tarefinha")
         } 
        
     })
+    }
+    
 })
 
 
