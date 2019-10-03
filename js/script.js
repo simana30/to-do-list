@@ -8,7 +8,7 @@ const tarefas = document.getElementById('tarefas')
 const botaoMarcar = document.getElementById('botaoMarcar')
 const botaoExcluir = document.getElementById('botaoExcluir')
 const vazia = document.getElementById("vazia")
-
+let dragging
 
 // inserir um evento no form
 form.addEventListener('submit', function(evento){
@@ -44,6 +44,12 @@ form.addEventListener('submit', function(evento){
         //estrututura de identação
         tarefinha.appendChild(valorDigitado)
         tarefinha.appendChild(paragrafoX)    
+
+        //transformar em arrastavel
+        tarefas.setAttribute('draggable', 'true')
+        tarefinha.setAttribute('draggable', 'true')
+        valorDigitado.setAttribute('draggable', 'true')
+        paragrafoX.setAttribute('draggable', 'true')
     
         //ouvir parágrafo tarefinha e adicionar a classe que risca a tarefa e faz o inverso(toogle)
         valorDigitado.addEventListener('click', function(evento){
@@ -55,37 +61,55 @@ form.addEventListener('submit', function(evento){
                 valorDigitado.classList.remove('tarefa-executada')
             }
         
-    })
-    //ouvir o parágrafo x  e excluir a tarefa
-    paragrafoX.addEventListener('click', function(evento){
-             
-        if (valorDigitado.parentNode) {
-            valorDigitado.parentNode.removeChild(valorDigitado)
-            paragrafoX.parentNode.removeChild(paragrafoX)
-            tarefinha.classList.remove("tarefinha")
-        } 
-       
-    })
+        })
+        //ouvir o botaoMarcar tudo e add a classe que risca tudo, toggle clicar no botão de novo e desmarcar
+        botaoMarcar.addEventListener('click', function(e){
+            if(tarefas.classList.contains('tarefas-marcadas')) {
+                tarefas.classList.remove('tarefas-marcadas')
+                tarefas.classList.add('tarefas-digitadas')
+            } else {
+            let tarefasMarcadas = tarefas.setAttribute('class', 'tarefas-marcadas')
+            }    
+        })
+        //ouvir o botaoExcluir, iterar e criar uma nodelist vazia, excluir todos os itens ou resetar 
+        //form.reset();
+
+        botaoExcluir.addEventListener('click', function(e){
+            if(tarefas.parentNode){
+                tarefas.parentNode.removeChild(tarefas)
+            }
+        })
+        //ouvir o parágrafo x  e excluir a tarefa
+        paragrafoX.addEventListener('click', function(evento){
+                
+            if (valorDigitado.parentNode) {
+                valorDigitado.parentNode.removeChild(valorDigitado)
+                paragrafoX.parentNode.removeChild(paragrafoX)
+                tarefinha.classList.remove("tarefinha")
+            } 
+        
+        })
+        
     }
     
+        //Função DragDrop
+    //divmae
+    tarefas.addEventListener("dragstart", function(ev){
+        dragging = ev.target.closest(".tarefinha")
+    })
+
+    tarefas.addEventListener('dragover', function(ev){
+        ev.preventDefault()
+        const posicao = ev.target.closest(".tarefinha")
+        this.insertBefore(dragging, posicao)
+    })
+
+    tarefas.addEventListener("dragend", function(ev){
+        dragging = null
+    })
 })
 
 
-//ouvir o botaoMarcar tudo e add a classe que risca tudo, toggle clicar no botão de novo e desmarcar
-botaoMarcar.addEventListener('click', function(e){
-    if(tarefas.classList.contains('tarefas-marcadas')) {
-        tarefas.classList.remove('tarefas-marcadas')
-        tarefas.classList.add('tarefas-digitadas')
-    } else {
-    let tarefasMarcadas = tarefas.setAttribute('class', 'tarefas-marcadas')
-    }    
-})
-//ouvir o botaoExcluir, iterar e criar uma nodelist vazia, excluir todos os itens ou resetar 
-//form.reset();
 
-botaoExcluir.addEventListener('click', function(e){
-    if(tarefas.parentNode){
-        tarefas.parentNode.removeChild(tarefas)
-    }
-})
-    
+
+
