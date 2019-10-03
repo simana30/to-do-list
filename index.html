@@ -10,9 +10,13 @@
 <body>
     <Div id="listaContainer">
         <h1>Adicione uma nova tarefa</h1>
-        <input id="inputTarefa" type="text">
-        <button id="botaoAdd" class="btnAdd">add</button>
-        <ul id="tarefas"></ul>
+        <form action="#" id="form">
+                <input type="text" id="inputTarefa" class = "tarefa" placeholder="Insira sua tarefa">
+                <input type="submit" id="botaoAdd" class="btnAdd" value="ADD">
+                <div id="tarefas"></div>
+        </form>     
+        <div id="vazia"></div>
+
         <button id="botaoMarcar" class="btnMarcar">Marcar todas</button>
         <button id="botaoExcluir" class="btnExcluir">Excluir</button>
 
